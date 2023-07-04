@@ -33,6 +33,8 @@ class Solver(BaseSolver):
         self.X, self.y = X, y
 
     def run(self, n_iter):
+        raise ValueError("Nice explanation about the error.")
+
         # This is the function that is called to evaluate the solver.
         # It runs the algorithm for a given a number of iterations `n_iter`.
 
