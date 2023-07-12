@@ -18,9 +18,7 @@ class Objective(BaseObjective):
     # the cross product for each key in the dictionary.
     # All parameters 'p' defined here are available as 'self.p'.
     # This means the OLS objective will have a parameter `self.whiten_y`.
-    parameters = {
-        'whiten_y': [False, True],
-    }
+    parameters = {}
 
     # Minimal version of benchopt required to run this benchmark.
     # Bump it up if the benchmark depends on a new feature of benchopt.
@@ -31,11 +29,6 @@ class Objective(BaseObjective):
         # returned by `Dataset.get_data`. This defines the benchmark's
         # API to pass data. This is customizable for each benchmark.
         self.X, self.y = X, y
-
-        # `set_data` can be used to preprocess the data. For instance,
-        # if `whiten_y` is True, remove the mean of `y`.
-        if self.whiten_y:
-            y -= y.mean(axis=0)
 
     def compute(self, beta):
         # The arguments of this function are the outputs of the
